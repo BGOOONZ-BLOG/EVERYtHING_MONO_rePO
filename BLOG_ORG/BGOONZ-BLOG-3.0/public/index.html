@@ -1,0 +1,109 @@
+<!DOCTYPE html><html><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><meta name="note" content="environment=development"/><style type="text/css">
+    .anchor.before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform: translateX(-100%);
+      padding-right: 4px;
+    }
+    .anchor.after {
+      display: inline-block;
+      padding-left: 4px;
+    }
+    h1 .anchor svg,
+    h2 .anchor svg,
+    h3 .anchor svg,
+    h4 .anchor svg,
+    h5 .anchor svg,
+    h6 .anchor svg {
+      visibility: hidden;
+    }
+    h1:hover .anchor svg,
+    h2:hover .anchor svg,
+    h3:hover .anchor svg,
+    h4:hover .anchor svg,
+    h5:hover .anchor svg,
+    h6:hover .anchor svg,
+    h1 .anchor:focus svg,
+    h2 .anchor:focus svg,
+    h3 .anchor:focus svg,
+    h4 .anchor:focus svg,
+    h5 .anchor:focus svg,
+    h6 .anchor:focus svg {
+      visibility: visible;
+    }
+  </style><script>
+    document.addEventListener("DOMContentLoaded", function(event) {
+      var hash = window.decodeURI(location.hash.replace('#', ''))
+      if (hash !== '') {
+        var element = document.getElementById(hash)
+        if (element) {
+          var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
+          var clientTop = document.documentElement.clientTop || document.body.clientTop || 0
+          var offset = element.getBoundingClientRect().top + scrollTop - clientTop
+          // Wait for the browser to finish rendering before scrolling.
+          setTimeout((function() {
+            window.scrollTo(0, offset - 0)
+          }), 0)
+        }
+      }
+    })
+  </script><link rel="alternate" type="application/rss+xml" href="/rss.xml"/><link rel="sitemap" type="application/xml" href="/sitemap.xml"/><link rel="icon" href="/favicon.svg?v=4b9c3a13873229a0e7353936b411f594" type="image/svg+xml"/><link rel="icon" href="/favicon-32x32.png?v=4b9c3a13873229a0e7353936b411f594" type="image/png"/><link rel="manifest" href="/manifest.webmanifest" crossorigin="anonymous"/><meta name="theme-color" content="#150956"/><link rel="apple-touch-icon" sizes="48x48" href="/icons/icon-48x48.png?v=4b9c3a13873229a0e7353936b411f594"/><link rel="apple-touch-icon" sizes="72x72" href="/icons/icon-72x72.png?v=4b9c3a13873229a0e7353936b411f594"/><link rel="apple-touch-icon" sizes="96x96" href="/icons/icon-96x96.png?v=4b9c3a13873229a0e7353936b411f594"/><link rel="apple-touch-icon" sizes="144x144" href="/icons/icon-144x144.png?v=4b9c3a13873229a0e7353936b411f594"/><link rel="apple-touch-icon" sizes="192x192" href="/icons/icon-192x192.png?v=4b9c3a13873229a0e7353936b411f594"/><link rel="apple-touch-icon" sizes="256x256" href="/icons/icon-256x256.png?v=4b9c3a13873229a0e7353936b411f594"/><link rel="apple-touch-icon" sizes="384x384" href="/icons/icon-384x384.png?v=4b9c3a13873229a0e7353936b411f594"/><link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-512x512.png?v=4b9c3a13873229a0e7353936b411f594"/><title data-react-helmet="true"></title><style>html { --color-text: black;
+--color-background: white;
+--color-shadow: #e5e5e5;
+--color-link: #1f59cd;
+--color-lightLink: #279AF1;
+--color-accentBackground: rgba(0, 0, 0, 0.05);
+--color-gray: undefined;
+--color-lightGray: #f7f7f7;
+--color-darkGray: #464849;
+--color-a: #d2ae00;
+--color-b: #150956;
+--color-c: #1f59cd;
+--color-d: #ff7600;
+--color-gray-default: #464849;
+--color-gray-dark: #3d3d3d;
+--color-gray-darker: #1a1d23;
+--color-gray-darkest: #060606;
+--color-gray-light: #bcbcbc;
+--color-gray-lighter: #e5e5e5;
+--color-gray-lightest: #f7f7f7;
+--color-blue-default: #2202a9;
+--color-blue-dark: #150956;
+--color-blue-darker: #0a051e;
+--color-blue-darkest: #00040c;
+--color-blue-light: #1f59cd;
+--color-blue-lighter: #279AF1;
+--color-orange-default: #d2ae00;
+--color-orange-dark: #ff9100;
+--color-orange-darker: #ff7600;
+--color-orange-darkest: #b75500;
+--color-green-light: #00948f;
+ }</style><script src="/socket.io/socket.io.js"></script></head><body><script>(function setColorsByTheme() {
+  // Don't use backticks around emojis. Breaks replacement in boundFn below.
+  // eslint-disable-next-line quotes
+  var colors = {"text":{"light":"black","dark":"#e5e5e5"},"background":{"light":"white","dark":"#0a051e"},"shadow":{"light":"#e5e5e5","dark":"black"},"link":{"light":"#1f59cd","dark":"#279AF1"},"lightLink":{"light":"#279AF1","dark":"#279AF1"},"accentBackground":{"light":"rgba(0, 0, 0, 0.05)","dark":"rgba(0, 0, 0, 0.7)"},"gray":{"dark":"#bcbcbc"},"lightGray":{"light":"#f7f7f7","dark":"#1a1d23"},"darkGray":{"light":"#464849","dark":"#060606"},"a":{"light":"#d2ae00","dark":"#ff7600"},"b":{"light":"#150956","dark":"#00040c"},"c":{"light":"#1f59cd","dark":"#279AF1"},"d":{"light":"#ff7600","dark":"#b75500"}},
+      colorModeKey = 'color-mode',
+      colorModeCssProp = '--initial-color-mode'; // Default value if the user never used DarkToggle is to use the OS color mode.
+
+  var colorMode = "auto"; // Only try to parse value from localStorage if there seems to be one.
+
+  var persistedPreference = localStorage[colorModeKey] && JSON.parse(localStorage[colorModeKey]);
+  if (["light", "dark", "auto"].includes(persistedPreference)) colorMode = persistedPreference;
+  document.body.style.setProperty(colorModeCssProp, colorMode); // Here we set the actual colors for the page after SSR.
+  // colorByMode only supports `dark` or `light`. So if colorMode
+  // is `auto` we pick either of those depending on prefersDarkFromMQ.
+
+  if (colorMode === "auto") {
+    var mq = window.matchMedia("(prefers-color-scheme: dark)");
+    var prefersDarkFromMQ = mq.matches;
+    colorMode = prefersDarkFromMQ ? "dark" : "light";
+  }
+
+  for (var _i = 0, _Object$entries = Object.entries(colors); _i < _Object$entries.length; _i++) {
+    var _Object$entries$_i = _Object$entries[_i],
+        name = _Object$entries$_i[0],
+        colorByMode = _Object$entries$_i[1];
+    document.body.style.setProperty("--color-" + name, colorByMode[colorMode]);
+  }
+})()</script><div id="___gatsby"></div><script src="/polyfill.js" nomodule=""></script><script src="/commons.js"></script></body></html>

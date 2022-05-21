@@ -1,0 +1,16 @@
+// Gets a value from a map.
+@function map-deep-get($map, $keys...) {
+	@each $key in $keys {
+		$map: map-get($map, $key);
+	}
+	@return $map;
+}
+
+@function map-set($map, $key, $value) {
+    $new: ($key: $value);
+    @return map-merge($map, $new);
+}
+
+@function container-max-width($key) {
+	@return map-get($container-sizes, $key);
+}

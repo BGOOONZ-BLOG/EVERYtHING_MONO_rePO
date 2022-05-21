@@ -1,0 +1,828 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Javascript Concepts Review | webdevhub</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+}
+
+.simple-table-header {
+	background: rgb(247, 246, 243);
+	color: black;
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(145, 145, 142, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(187, 132, 108, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(215, 129, 58, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 148, 51, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(108, 155, 125, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(91, 151, 189, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(167, 130, 195, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(205, 116, 159, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(225, 111, 100, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(145, 145, 142, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(187, 132, 108, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(215, 129, 58, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 148, 51, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(108, 155, 125, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(91, 151, 189, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(167, 130, 195, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(205, 116, 159, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(225, 111, 100, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="5642819a-5125-4123-9c9f-b9296443bc7e" class="page sans"><header><h1 class="page-title">Javascript Concepts Review | webdevhub</h1></header><div class="page-body"><p id="43944fe7-f2a8-400b-a158-d96c0e30cf24" class="block-color-gray"><a href="https://bgoonz-blog.netlify.app/docs/javascript/review/">https://bgoonz-blog.netlify.app/docs/javascript/review/</a></p><p id="f317205b-801d-4e27-9488-99af9e771512" class="">
+</p><h1 id="b355080e-19f2-4c84-840c-d6d7a7a59e88" class="">Javascript Concepts Review</h1><h2 id="e7f88f92-6cb2-4d18-a410-4eb14a3d659f" class="">Core Concept Review</h2><h1 id="171a6bf5-800f-4e37-9015-54d081bd2f42" class="">index</h1><p id="675bf9d6-8f08-4f6f-978e-729aa4b8c34b" class="">This appendix is a non-exhaustive list of new syntactic features and methods that were added to JavaScript in ES6. These features are the most commonly used and most helpful.</p><p id="24c22e4f-5fdc-4e81-ba6b-f3a4382ab80f" class="">While this appendix doesn&#x27;t cover ES6 classes, we go over the basics while learning about components in the book. In addition, this appendix doesn&#x27;t include descriptions of some larger new features like promises and generators. If you&#x27;d like more info on those or on any topic below, we encourage you to reference the <a href="https://developer.mozilla.org/">Mozilla Developer Network&#x27;s website</a> (MDN).</p><h2 id="c61c0e4a-5ac3-4b4b-bd62-275511f0bd6f" class="">Prefer <code>const</code> and <code>let</code> over <code>var</code></h2><p id="fa262c93-2eed-4b67-9da9-9305746b4633" class="">If you&#x27;ve worked with ES5 JavaScript before, you&#x27;re likely used to seeing variables declared with <code>var</code>:</p><pre id="c72708a7-71dc-48e5-9c3d-8bba15ad0c92" class="code code-wrap"><code>ar myVariable = 5;
+</code></pre><p id="932d5e18-626a-4e0d-9cae-16d554104178" class="">Both the <code>const</code> and <code>let</code> statements also declare variables. They were introduced in ES6.</p><p id="6f49ac7c-36d3-43e8-b97c-c89981c67fa3" class="">Use <code>const</code> in cases where a variable is never re-assigned. Using <code>const</code> makes this clear to whoever is reading your code. It refers to the &quot;constant&quot; state of the variable in the context it is defined within.</p><p id="bceb53e7-5105-4e10-8f79-ef042ceeb721" class="">If the variable will be re-assigned, use <code>let</code>.</p><p id="fc912b9d-68c7-4086-95b4-2939ff8e2709" class="">We encourage the use of <code>const</code> and <code>let</code> instead of <code>var</code>. In addition to the restriction introduced by <code>const</code>, both <code>const</code> and <code>let</code> are <em>block scoped</em> as opposed to <em>function scoped</em>. This scoping can help avoid unexpected bugs.</p><h2 id="813e7c08-3b26-497b-8569-70f5fe485ec7" class="">Arrow functions</h2><p id="eef914f9-1b23-496e-bc12-5c98562c09e7" class="">There are three ways to write arrow function bodies. For the examples below, let&#x27;s say we have an array of city objects:</p><pre id="0948a998-0333-4180-be88-513d17bb41e7" class="code code-wrap"><code>onst cities = [
+  { name: &#x27;Cairo&#x27;, pop: 7764700 },
+  { name: &#x27;Lagos&#x27;, pop: 8029200 },
+];
+</code></pre><p id="3c00fbf5-2a23-48d4-8eb5-d02eb24c6bed" class="">If we write an arrow function that spans multiple lines, we must use braces to delimit the function body like this:</p><pre id="400460c2-10ec-4b0f-a445-f48eaef26166" class="code code-wrap"><code>const formattedPopulations = cities.map((city) =&gt; {
+    const popMM = (city.pop / 1000000).toFixed(2);
+    return popMM + &#x27; million&#x27;;
+});
+console.log(formattedPopulations);
+</code></pre><p id="46d191e3-6954-462c-bd82-55514770f7fb" class="">Note that we must also explicitly specify a <code>return</code> for the function.</p><p id="b616a333-c4b3-468b-bd48-713c9774f779" class="">However, if we write a function body that is only a single line (or single expression) we can use parentheses to delimit it:</p><pre id="0ac82366-eb0c-464c-af73-755feba30d7c" class="code code-wrap"><code>const formattedPopulations2 = cities.map((city) =&gt; (city.pop / 1000000).toFixed(2) + &#x27; million&#x27;);
+</code></pre><p id="07e6e510-f0c0-49fa-b7ec-49e761d4c50d" class="">Notably, we don&#x27;t use <code>return</code> as it&#x27;s implied.</p><p id="f3b1e1a8-4a6a-4d6e-b352-00d0bcbb644f" class="">Furthermore, if your function body is terse you can write it like so:</p><pre id="d95dcd8d-56e7-4121-b5d3-a632f728f797" class="code code-wrap"><code>const pops = cities.map((city) =&gt; city.pop);
+console.log(pops);
+</code></pre><p id="b7f10a70-d26a-41ba-babb-9b352fac2b08" class="">The terseness of arrow functions is one of two reasons that we use them. Compare the one-liner above to this:</p><pre id="0a1ba593-81eb-4cc9-b738-473c2787ad15" class="code code-wrap"><code>const popsNoArrow = cities.map(function (city) {
+    return city.pop;
+});
+</code></pre><p id="2f2956fa-de92-4ef6-b9b5-1af44ac42a1f" class="">Of greater benefit, though, is how arrow functions bind the <code>this</code> object.</p><p id="ade67e08-c6ee-48e5-b216-4a7801fe7df2" class="">The traditional JavaScript function declaration syntax (<code>function () {}</code>) will bind <code>this</code> in anonymous functions to the global object. To illustrate the confusion this causes, consider the following example:</p><pre id="9d9da02b-4229-4bc0-b062-89279cb44b69" class="code code-wrap"><code>unction printSong() {
+  console.log(&quot;Oops - The Global Object&quot;);
+}
+
+const jukebox = {
+  songs: [
+    {
+      title: &quot;Wanna Be Startin&#x27; Somethin&#x27;&quot;,
+      artist: &quot;Michael Jackson&quot;,
+    },
+    {
+      title: &quot;Superstar&quot;,
+      artist: &quot;Madonna&quot;,
+    },
+  ],
+  printSong: function (song) {
+    console.log(song.title + &quot; - &quot; + song.artist);
+  },
+  printSongs: function () {
+
+    this.songs.forEach(function(song) {
+
+      this.printSong(song);
+    });
+  },
+}
+
+jukebox.printSongs();
+</code></pre><p id="cd1af93a-4295-43e0-b758-14c79103f5eb" class="">The method <code>printSongs()</code> iterates over <code>this.songs</code> with <code>forEach()</code>. In this context, <code>this</code> is bound to the object (<code>jukebox</code>) as expected. However, the anonymous function passed to <code>forEach()</code> binds its internal <code>this</code> to the global object. As such, <code>this.printSong(song)</code> calls the function declared at the top of the example, <em>not</em> the method on <code>jukebox</code>.</p><p id="6196543a-0662-4845-82a1-95250e2b66d1" class="">JavaScript developers have traditionally used workarounds for this behavior, but arrow functions solve the problem by <strong>capturing the </strong><code><strong>this</strong></code><strong> value of the enclosing context</strong>. Using an arrow function for <code>printSongs()</code> has the expected result:</p><pre id="ca25505d-fda8-422a-9779-279e232ce197" class="code code-wrap"><code>  printSongs: function () {
+    this.songs.forEach((song) =&gt; {
+
+      this.printSong(song);
+    });
+  },
+}
+
+jukebox.printSongs();
+</code></pre><p id="11b96822-e091-4f77-90b5-c94243a377cb" class="">For this reason, throughout the book we use arrow functions for all anonymous functions.</p><h2 id="88b2bfa6-1617-48e3-8c72-67f67bfebc1a" class="">Modules</h2><p id="f5e7343f-7182-4b4f-a40b-336239762605" class="">ES6 formally supports modules using the <code>import</code>/<code>export</code> syntax.</p><p id="5deed825-31c2-4f8f-8d9a-53d774e4a11f" class=""><strong>Named exports</strong></p><p id="502b3487-ee00-4d7b-86d5-43d96396cbf9" class="">Inside any file, you can use <code>export</code> to specify a variable the module should expose. Here&#x27;s an example of a file that exports two functions:</p><pre id="cba53a76-b6ec-496f-aba5-f29af0bab4cc" class="code code-wrap"><code>export const sayHi = () =&gt; console.log(&#x27;Hi!&#x27;);
+export const sayBye = () =&gt; console.log(&#x27;Bye!&#x27;);
+
+const saySomething = () =&gt; console.log(&#x27;Something!&#x27;);
+</code></pre><p id="9ff18b1e-1b18-4ef4-a557-f0d213de9db3" class="">Now, anywhere we wanted to use these functions we could use <code>import</code>. We need to specify which functions we want to import. A common way of doing this is using ES6&#x27;s destructuring assignment syntax to list them out like this:</p><pre id="0af6393b-6b28-486a-b34c-11121aa7c84e" class="code code-wrap"><code>import { sayHi, sayBye } from &#x27;./greetings&#x27;;
+
+sayHi();
+sayBye();
+</code></pre><p id="2c989002-c2bd-4e00-8e5d-79291a667f31" class="">Importantly, the function that was <em>not</em> exported (<code>saySomething</code>) is unavailable outside of the module.</p><p id="fbc0e03a-ff1e-4fc2-ac33-af7ca02297c2" class="">Also note that we supply a <strong>relative path</strong> to <code>from</code>, indicating that the ES6 module is a local file as opposed to an npm package.</p><p id="133c5c75-42ab-4bfc-b53d-02db669f5326" class="">Instead of inserting an <code>export</code> before each variable you&#x27;d like to export, you can use this syntax to list off all the exposed variables in one area:</p><pre id="d1dabecc-305b-4ccd-b599-62c3a196e8a4" class="code code-wrap"><code>const sayHi = () =&gt; console.log(&#x27;Hi!&#x27;);
+const sayBye = () =&gt; console.log(&#x27;Bye!&#x27;);
+
+const saySomething = () =&gt; console.log(&#x27;Something!&#x27;);
+
+export { sayHi, sayBye };
+</code></pre><p id="eafb5ed3-7926-4bef-bf1e-f8ac7aa6f5b0" class="">We can also specify that we&#x27;d like to import all of a module&#x27;s functionality underneath a given namespace with the <code>import * as &lt;Namespace&gt;</code> syntax:</p><pre id="bf17d2b3-4705-40b7-9e0c-387bd45e5a44" class="code code-wrap"><code>import * as Greetings from &#x27;./greetings&#x27;;
+
+Greetings.sayHi();
+
+Greetings.sayBye();
+
+Greetings.saySomething();
+</code></pre><p id="724b27f3-0795-4f08-9165-b77bac903a5d" class=""><strong>Default export</strong></p><p id="4378ff75-f65f-4e8f-acfb-51c04df232b2" class="">The other type of export is a default export. A module can only contain one default export:</p><pre id="1906feaf-2e04-4409-826b-3d17be7e9147" class="code code-wrap"><code>const sayHi = () =&gt; console.log(&#x27;Hi!&#x27;);
+const sayBye = () =&gt; console.log(&#x27;Bye!&#x27;);
+
+const saySomething = () =&gt; console.log(&#x27;Something!&#x27;);
+
+const Greetings = { sayHi, sayBye };
+
+export default Greetings;
+</code></pre><p id="0845c42c-87e4-49ea-98c9-39c178694cce" class="">This is a common pattern for libraries. It means you can easily import the library wholesale without specifying what individual functions you want:</p><pre id="6464e227-bab6-4cce-8ce9-e2813f6f2b6c" class="code code-wrap"><code>import Greetings from &#x27;./greetings&#x27;;
+
+Greetings.sayHi();
+Greetings.sayBye();
+</code></pre><p id="da043ba7-f016-4fa0-afc6-04d8827c4743" class="">It&#x27;s not uncommon for a module to use a mix of both named exports and default exports. For instance, with <code>react-dom</code>, you can import <code>ReactDOM</code> (a default export) like this:</p><pre id="cbe624b7-67cc-4c0f-927a-f9769f2173e6" class="code code-wrap"><code>import ReactDOM from &#x27;react-dom&#x27;;
+
+ReactDOM.render();
+</code></pre><p id="c682832a-12b9-4b20-930f-897a11caae97" class="">Or, if you&#x27;re only going to use the <code>render()</code> function, you can import the named <code>render()</code> function like this:</p><pre id="ac70f194-3554-44e1-95c2-4c2f3db40921" class="code code-wrap"><code>import { render } from &#x27;react-dom&#x27;;
+
+render();
+</code></pre><p id="302052f1-f185-411d-bcd2-52a3b2c2ddda" class="">To achieve this flexibility, the export implementation for <code>react-dom</code> looks something like this:</p><pre id="90df9637-abf6-4ff9-a9ce-cc5335fbb893" class="code code-wrap"><code>export const render = (component, target) =&gt; {};
+
+const ReactDOM = {
+    render
+};
+
+export default ReactDOM;
+</code></pre><p id="a9ee5fe8-3893-4c58-8a47-3a3d7b9b3557" class="">If you want to play around with the module syntax, check out the folder <code>code/webpack/es6-modules</code>.</p><p id="0819bb04-72a2-4ccd-be5c-b140a4cbde04" class="">For more reading on ES6 modules, see this article from Mozilla: &quot;<a href="https://hacks.mozilla.org/2015/08/es6-in-depth-modules/">ES6 in Depth: Modules</a>&quot;.</p><h2 id="3e140439-3a1f-4558-b468-0b59038c7a6a" class=""><code>Object.assign()</code></h2><p id="738f9cfd-e827-4cf6-be40-898f8d4b77ec" class="">We use <code>Object.assign()</code> often throughout the book. We use it in areas where we want to create a modified version of an existing object.</p><p id="587e2ede-1619-4997-af66-b703d600f53a" class=""><code>Object.assign()</code> accepts any number of objects as arguments. When the function receives two arguments, it <em>copies</em> the properties of the second object onto the first, like so:</p><pre id="9ffcf4e7-c3a5-4db5-9b0e-1cfccc3d5cd8" class="code code-wrap"><code>onst coffee = { };
+const noCream = { cream: false };
+const noMilk = { milk: false };
+Object.assign(coffee, noCream);
+</code></pre><p id="c3ea3619-fbef-4180-a170-2224cefb56d5" class="">It is idiomatic to pass in three arguments to <code>Object.assign()</code>. The first argument is a new JavaScript object, the one that <code>Object.assign()</code> will ultimately return. The second is the object whose properties we&#x27;d like to build off of. The last is the changes we&#x27;d like to apply:</p><pre id="c942f522-9cf6-44a3-bb81-4cb4a66bba88" class="code code-wrap"><code>const coffeeWithMilk = Object.assign({}, coffee, { milk: true });
+</code></pre><p id="39729ce9-8cce-4bfe-8411-74474d20d7bb" class=""><code>Object.assign()</code> is a handy method for working with &quot;immutable&quot; JavaScript objects.</p><h2 id="ad3b9bc3-59e4-44f7-8ed1-6e7099150f86" class="">Template literals</h2><p id="bbd0d39d-01f4-4b93-8760-90e314b50193" class="">In ES5 JavaScript, you&#x27;d interpolate variables into strings like this:</p><pre id="df00bb91-d605-4d71-83e3-e351a4dd9d9e" class="code code-wrap"><code>var greeting = &#x27;Hello, &#x27; + user + &#x27;! It is &#x27; + degF + &#x27; degrees outside.&#x27;;
+</code></pre><p id="6cf6db2f-c7ef-4ab9-85f6-a288c5ec98bb" class="">With ES6 template literals, we can create the same string like this:</p><pre id="dab12883-67d4-4ff2-a7bc-05de1b03fe39" class="code code-wrap"><code>const greeting = `Hello, ${user}! It is ${degF} degrees outside.`;
+</code></pre><h2 id="3cda1000-2645-4810-87ad-8f5771a83ac1" class="">The spread operator (<code>...</code>)</h2><p id="174919f1-7d0b-47cb-979a-35b2b0bc7655" class="">In arrays, the ellipsis <code>...</code> operator will <em>expand</em> the array that follows into the parent array. The spread operator enables us to succinctly construct new arrays as a composite of existing arrays.</p><p id="f1939201-d5d8-4709-aef6-b19b8e57e6d0" class="">Here is an example:</p><pre id="61a14b39-1676-4411-981a-e6920429e995" class="code code-wrap"><code>onst a = [ 1, 2, 3 ];
+const b = [ 4, 5, 6 ];
+const c = [ ...a, ...b, 7, 8, 9 ];
+
+console.log(c);
+</code></pre><p id="007b079f-0cae-4b53-85ef-a185c9a74b02" class="">Notice how this is different than if we wrote:</p><pre id="f6bca451-9f4c-4c90-9fe3-b20bcc78dfd1" class="code code-wrap"><code>const d = [a, b, 7, 8, 9];
+console.log(d);
+</code></pre><h2 id="98f3b9c2-1872-43d1-b0f2-b2e04bdfc5b6" class="">Enhanced object literals</h2><p id="cf07d527-6a23-478d-a44d-fb03079188c7" class="">In ES5, all objects were required to have explicit key and value declarations:</p><pre id="ec8d02db-04d2-476a-a86b-20b200d1ffac" class="code code-wrap"><code>const explicit = {
+    getState: getState,
+    dispatch: dispatch
+};
+</code></pre><p id="34d3b8c0-1ef5-4d2c-babe-79061cb00d96" class="">In ES6, you can use this terser syntax whenever the property name and variable name are the same:</p><pre id="305d5e20-6524-4858-9943-fa52bf6a887c" class="code code-wrap"><code>const implicit = {
+    getState,
+    dispatch
+};
+</code></pre><p id="9cbc1073-9507-487a-a289-d8033f5e3c73" class="">Lots of open source libraries use this syntax, so it&#x27;s good to be familiar with it. But whether you use it in your own code is a matter of stylistic preference.</p><h2 id="78d461ce-a8b8-4b47-a8d0-38867c961c8a" class="">Default arguments</h2><p id="4d81f8b7-b299-40d7-802f-580d48585a5d" class="">With ES6, you can specify a default value for an argument in the case that it is <code>undefined</code> when the function is called.</p><p id="7dd69500-9dad-44bb-987c-f0b8d8a16beb" class="">This:</p><pre id="7fffa113-0280-4eac-9f02-d5c5e4ec21a8" class="code code-wrap"><code>unction divide(a, b) {
+
+  const divisor = typeof b === &#x27;undefined&#x27; ? 1 : b;
+
+  return a / divisor;
+}
+</code></pre><p id="3135217d-260f-487c-9858-e16b44dff908" class="">Can be written as this:</p><pre id="b0da6d1d-dd64-47d7-9ac8-a3439de5ce45" class="code code-wrap"><code>function divide(a, b = 1) {
+    return a / b;
+}
+</code></pre><p id="1f26e87e-16e8-4be4-a0cd-70f13d20a497" class="">In both cases, using the function looks like this:</p><pre id="4a472ed4-b2eb-44e7-ac98-1b4857d0d8d0" class="code code-wrap"><code>divide(14, 2);
+
+divide(14, undefined);
+
+divide(14);
+</code></pre><p id="61d5fa1e-ecb8-4d58-8a51-6ddac0ff502c" class="">Whenever the argument <code>b</code> in the example above is <code>undefined</code>, the default argument is used. Note that <code>null</code> will not use the default argument:</p><pre id="e26d6fab-4e5f-4899-a280-0a4099d53cd7" class="code code-wrap"><code>divide(14, null);
+</code></pre><h2 id="1ea1bc4c-9d77-4b1d-b1c7-35752acfeabf" class="">Destructuring assignments</h2><h3 id="d7bc8c6c-7aa4-44db-9bbe-829324203b2b" class="">For arrays</h3><p id="c73fd3e1-2ad3-4a2b-a1ae-c34421a9ed80" class="">In ES5, extracting and assigning multiple elements from an array looked like this:</p><pre id="7fa169b3-5819-4f65-ad1c-1bd094a03670" class="code code-wrap"><code>ar fruits = [ &#x27;apples&#x27;, &#x27;bananas&#x27;, &#x27;oranges&#x27; ];
+var fruit1 = fruits[0];
+var fruit2 = fruits[1];
+</code></pre><p id="3e0b125c-34be-4b59-a536-979d07383766" class="">In ES6, we can use the destructuring syntax to accomplish the same task like this:</p><pre id="2d4cdcaf-8d31-4b3f-adb0-d369aa19134f" class="code code-wrap"><code>const [veg1, veg2] = [&#x27;asparagus&#x27;, &#x27;broccoli&#x27;, &#x27;onion&#x27;];
+console.log(veg1);
+console.log(veg2);
+</code></pre><p id="9320213b-68ca-4913-862f-8510b3fbf369" class="">The variables in the array on the left are &quot;matched&quot; and assigned to the corresponding elements in the array on the right. Note that <code>&#x27;onion&#x27;</code> is ignored and has no variable bound to it.</p><h3 id="50b00e85-19b8-4d56-8a65-96004beecbb6" class="">For objects</h3><p id="5bd6028d-6dd8-4de3-80e0-18f76c5af446" class="">We can do something similar for extracting object properties into variables:</p><pre id="7100864a-2db4-4c20-8c09-36c2a6073bbb" class="code code-wrap"><code>const smoothie = {
+    fats: [&#x27;avocado&#x27;, &#x27;peanut butter&#x27;, &#x27;greek yogurt&#x27;],
+    liquids: [&#x27;almond milk&#x27;],
+    greens: [&#x27;spinach&#x27;],
+    fruits: [&#x27;blueberry&#x27;, &#x27;banana&#x27;]
+};
+
+const { liquids, fruits } = smoothie;
+
+console.log(liquids);
+console.log(fruits);
+</code></pre><h3 id="4f2fa1af-c6c0-49d0-8d67-468a0434d048" class="">Parameter context matching</h3><p id="426d3a4f-c909-4640-9fb0-e299e1508289" class="">We can use these same principles to bind arguments inside a function to properties of an object supplied as an argument:</p><pre id="e533bbf4-9ca0-49be-8fa4-e5d9dda55771" class="code code-wrap"><code>const containsSpinach = ({ greens }) =&gt; {
+    if (greens.find((g) =&gt; g === &#x27;spinach&#x27;)) {
+        return true;
+    } else {
+        return false;
+    }
+};
+
+containsSpinach(smoothie);
+</code></pre><p id="2d49fee4-9869-4922-8f79-12291ff147ec" class="">We do this often with functional React components:</p><pre id="d5035168-c264-48c8-8be6-77ac0a53f582" class="code code-wrap"><code>const IngredientList = ({ ingredients, onClick }) =&gt; (
+    &lt;ul className=&quot;IngredientList&quot;&gt;
+        {ingredients.map((i) =&gt; (
+            &lt;li key={i.id} onClick={() =&gt; onClick(i.id)} className=&quot;item&quot;&gt;
+                {i.name}
+            &lt;/li&gt;
+        ))}
+    &lt;/ul&gt;
+);
+</code></pre><p id="bbd6fa6b-0030-4858-91aa-9037006cc955" class="">Here, we use destructuring to extract the props into variables (<code>ingredients</code> and <code>onClick</code>) that we then use inside the component&#x27;s function body.</p><p id="a67f8a28-b3d9-4124-9147-50c3f682a135" class="">Share To Linkedin:</p></div></article></body></html>

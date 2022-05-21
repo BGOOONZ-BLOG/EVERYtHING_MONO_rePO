@@ -1,0 +1,26 @@
+root_docs_path: /docs
+sections:
+    - about
+    - articles
+    - audio
+    - career
+    - community
+    - content
+    - css
+    - ds-algo
+    - docs
+    - faq
+    - interact
+    - javascript
+    - js-tips
+    - interview
+    - leetcode
+    - overflow
+    - projects
+    - python
+    - quick-ref
+    - react
+    - reference
+    - tools
+    - tips
+    - tutorials

@@ -1,0 +1,1 @@
+# bgoonz-blog-2.0-static

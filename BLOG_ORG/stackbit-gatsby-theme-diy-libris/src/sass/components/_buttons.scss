@@ -1,0 +1,266 @@
+/**
+ * Button Styles
+ */
+.btn {
+	align-items: center;
+	background-color: $color-btn-bg;
+	border: 0;
+	border-radius: 0;
+	box-sizing: border-box;
+	color: $color-btn-text;
+	cursor: pointer;
+	display: inline-flex;
+	font-size: 0.88889em;
+	font-weight: 700;
+	justify-content: center;
+	line-height: 1.25;
+	min-width: 10em;
+	padding: 0.75em 1.875em;
+	text-decoration: none;
+	transition: .25s ease;
+	white-space: nowrap;
+
+	&:hover,
+	&:focus,
+	&:active {
+		opacity: .85;
+		outline: 0;
+	}
+
+	.icon + :not(.sr-only) {
+		margin-left: 5px;
+
+		&.order-first {
+			margin-left: 0;
+			margin-right: 5px;
+		}
+	}
+}
+
+.btn--secondary {
+	background-color: $color-btn-alt-bg;
+	color: $color-btn-alt-text;
+}
+
+#site-wrap {
+	.btn--clear {
+		background: 0;
+		border: 0;
+		border-radius: 0;
+		color: inherit;
+		min-width: 0;
+		padding: 0;
+	}
+}
+
+.btn--icon {
+	font-size: 1rem;
+	height: 1.66667em;
+	min-width: 0;
+	padding: 0;
+	position: relative;
+	width: 1.66667em;
+}
+
+.btn-group {
+	align-items: center;
+	display: flex;
+	flex-wrap: wrap;
+
+	a:not(.btn) {
+		font-size: 0.88889em;
+	}
+
+	a,
+	.btn {
+		margin: 0 1em 1em 0;
+	}
+
+	&.justify-center {
+		a,
+		.btn {
+			margin-left: 0.5em;
+			margin-right: 0.5em;
+		}
+	}
+
+	&.justify-end {
+		a,
+		.btn {
+			margin-left: 1em;
+			margin-right: 0;
+		}
+	}
+
+	&.btn-group--fill {
+		.btn {
+			max-width: 22.5em;
+			width: 100%;
+		}
+	}
+}
+
+.style-classic {
+	.btn {
+		border-radius: 1.875em;
+	}
+}
+
+.style-classicmodern {
+	.btn {
+		border-radius: 1.875em;
+	}
+}
+
+.style-minimal {
+	.btn {
+		border-radius: 2px;
+	}
+}
+
+.style-bold {
+	.btn--primary,
+	.btn--secondary {
+		box-shadow: 0.375em 0.375em 0 0 $color-bold-btn-shadow;
+		opacity: 1;
+		position: relative;
+		-webkit-transform: translate(0,0);
+		transform: translate(0,0);
+
+		&:hover,
+		&:focus,
+		&:active {
+			box-shadow: 0 0 0 0 $color-bold-btn-shadow;
+			-webkit-transform: translate(0.375em,0.375em);
+			transform: translate(0.375em,0.375em);
+		}
+	}
+}
+
+.palette-gray {
+	.btn--secondary {
+		background-color: $color-gray-btn-alt-bg;
+	}
+}
+
+@each $style in map-keys($theme-styles) {
+	$style-suffix: "#{$style}";
+	$colors: map-deep-get($theme-styles, $style, "colors");
+	@each $color, $value in $colors {
+		$color-suffix: "#{$color}";
+	
+		.style-#{$style-suffix} {
+			&.palette-#{$color-suffix} {
+				.btn--primary {
+					background-color: $value;
+				}
+			}
+		}
+	}
+}
+
+button,
+input[type="submit"],
+input[type="button"],
+input[type="reset"],
+.button {
+  background-color: $color-btn-bg;
+  border: 2px solid $color-btn-bg;
+  border-radius: 1.75em;
+  box-sizing: border-box;
+  color: #fff;
+  display: inline-block;
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: 0.035em;
+  line-height: 1.2;
+  padding: 0.8em 2.75em;
+  text-align: center;
+  text-decoration: none;
+  -webkit-transition: .3s ease;
+  transition: .3s ease;
+  vertical-align: middle;
+
+  &:hover,
+  &:focus,
+  &:active {
+    background-color: transparent;
+    color: $color-btn-bg;
+    outline: 0;
+  }
+}
+
+.button-secondary {
+  background-color: transparent;
+  color: $color-btn-bg;
+
+  &:hover,
+  &:focus,
+  &:active {
+    background-color: $color-btn-bg;
+    color: #fff;
+  }
+}
+
+.button-icon {
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background: 0;
+  border: 0;
+  color: inherit;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  font-size: 1em;
+  font-weight: normal;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  letter-spacing: normal;
+  padding: 0.25em 0;
+
+  .icon {
+    height: 1em;
+    min-width: 1em;
+    text-align: center;
+  }
+
+  &:hover,
+  &:focus,
+  &:active {
+    color: $color-btn-bg;
+  }
+}
+
+.has-gradient {
+  .button {
+    background-color: #fff;
+    border-color: #fff;
+    color: $color-btn-bg;
+
+    &:hover,
+    &:focus,
+    &:active {
+      background-color: transparent;
+      color: #fff;
+    }
+  }
+
+  .button-secondary {
+    background-color: transparent;
+    color: #fff;
+
+    &:hover,
+    &:focus,
+    &:active {
+      background-color: #fff;
+      color: $color-btn-bg;
+    }
+  }
+}
+
+.center-content {
+    width: 100%;
+    text-align: center;
+}

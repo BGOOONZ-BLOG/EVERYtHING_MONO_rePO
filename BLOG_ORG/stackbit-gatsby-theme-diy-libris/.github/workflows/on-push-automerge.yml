@@ -1,0 +1,29 @@
+name: 'Nightly Merge'
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  nightly-merge:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v1
+
+    - name: On-Push AutoMerge
+      uses: robotology/gh-action-nightly-merge@v1.3.1
+      with:
+        stable_branch: 'master'
+        development_branch: 'preview'
+        allow_ff: true
+        only_ff: true # to avoid the "Merged branch x into x" commits that will cause headaches when later trying to merge the dev branch back to master...
+        allow_forks: true
+        allow_git_lfs: true
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+# For a list of all options, see: https://github.com/marketplace/actions/nightly-merge

@@ -1,0 +1,774 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>md and html | webdevhub</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+}
+
+.simple-table-header {
+	background: rgb(247, 246, 243);
+	color: black;
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(145, 145, 142, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(187, 132, 108, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(215, 129, 58, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 148, 51, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(108, 155, 125, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(91, 151, 189, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(167, 130, 195, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(205, 116, 159, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(225, 111, 100, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(145, 145, 142, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(187, 132, 108, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(215, 129, 58, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 148, 51, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(108, 155, 125, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(91, 151, 189, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(167, 130, 195, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(205, 116, 159, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(225, 111, 100, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="ef718094-bc22-432e-8aea-9c969830ea79" class="page sans"><header><h1 class="page-title">md and html | webdevhub</h1></header><div class="page-body"><p id="9c115e1a-5882-49bb-8301-89b7450b1e9a" class="block-color-gray"><a href="https://bgoonz-blog.netlify.app/docs/tools/markdown-html/">https://bgoonz-blog.netlify.app/docs/tools/markdown-html/</a></p><p id="08a9714e-5621-453d-a73f-bd74d4bcca96" class="">
+</p><h1 id="f90115a4-a05a-4c93-a5ef-fb1af94db3e7" class="">Paste To Markdown</h1><h1 id="308c0632-7009-45bb-9d8b-595defa12273" class="">Paste to Markdown</h1><h2 id="46836f26-d208-49a2-9b4c-cdeb9b968b2f" class="">Instructions</h2><ol type="1" id="9e260556-8004-4f68-90c3-36471f9a7174" class="numbered-list" start="1"><li>Find the text to convert to Markdown (<em>e.g.</em>, in another browser tab)</li></ol><ol type="1" id="82fee176-5e43-43ac-91de-5d06954b0c85" class="numbered-list" start="2"><li>Copy it to the clipboard (<code>Ctrl+C</code>, or <code>⌘+C</code> on Mac)</li></ol><ol type="1" id="af774cab-a6bb-4785-a25c-4f63dfe21018" class="numbered-list" start="3"><li>Paste it into this window (<code>Ctrl+V</code>, or <code>⌘+V</code> on Mac)</li></ol><ol type="1" id="de7a234e-e28e-48e9-9d66-d597d497aec4" class="numbered-list" start="4"><li>The converted Markdown will appear!</li></ol><p id="ee8129eb-4924-4238-ad4c-99e41495379b" class="">The conversion is carried out by <a href="https://github.com/domchristie/to-markdown">to-markdown</a>, a Markdown converter written in JavaScript and running locally in the browser.</p><h1 id="3ade4b5c-cd16-4c18-a945-071c573fa381" class="">Paste Excel Tabel To Markdown</h1><h1 id="7b6cd47a-b98d-48c7-a1ee-e0f6802a8356" class="">Copy Excel Paste Markdown</h1><h1 id="c92226d0-b018-4d8b-9368-95cd83c242e4" class="">Paste excel to HTML</h1><h1 id="0cdbdaa6-cd2b-44e6-860f-ee8cfa96ccbb" class="">USAGE</h1><h2 id="44346108-0772-408f-83b6-dbc2e8109efa" class="">cd src --&gt; node index.js name-of-excel-file.xlsx</h2><h1 id="05b0b5c4-17f9-4fe3-a1ad-b3083bc69acf" class="">DEMO!</h1><h2 id="232bb402-a8dd-4311-bff5-fd85143218b6" class="">This repository contains code made to read a microsoft excel file contained within it’s outer folder structure and convert it into a html table.</h2><h2 id="b665ce18-19f9-48e0-97f3-6711dad1d4ec" class=""></h2><figure id="599ffc25-af1c-4025-ad77-71dae01312b8" class="image"><a href="https://bgoonz-blog.netlify.app/docs/tools/markdown-html/assets/2021-01-27-14-27-34.png"><img src="https://bgoonz-blog.netlify.app/docs/tools/markdown-html/assets/2021-01-27-14-27-34.png"/></a></figure><h2 id="ff9cb1c6-1046-4ee1-86f6-f06a9495ee40" class="">&gt; As you can see from the difference between the screenshot of the source spreadsheet and it’s html rendering …. this project is still a work in progress.</h2><h2 id="cd5f57a2-8c4c-44b2-aec3-0e1cc0272a61" class=""></h2><figure id="946b6999-5144-4f9c-bbc0-af4bd8d0bbdc" class="image"><a href="https://bgoonz-blog.netlify.app/docs/tools/markdown-html/assets/screencapture-127-0-0-1-5500-testing-SampleData-html-2021-01-27-14_42_01.png"><img src="https://bgoonz-blog.netlify.app/docs/tools/markdown-html/assets/screencapture-127-0-0-1-5500-testing-SampleData-html-2021-01-27-14_42_01.png"/></a></figure><h2 id="fff2a5fc-bce0-46fa-9c54-66b6db6c9c07" class="">WITHOUT TARGETED STYLING BELOW:</h2><div id="d555bd4a-7092-44da-99ac-5893e262be47" class="collection-content"><h4 class="collection-title"></h4><table class="collection-content"><thead><tr><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesSelect"><path d="M7,13 C10.31348,13 13,10.31371 13,7 C13,3.68629 10.31348,1 7,1 C3.68652,1 1,3.68629 1,7 C1,10.31371 3.68652,13 7,13 Z M3.75098,5.32278 C3.64893,5.19142 3.74268,5 3.90869,5 L10.09131,5 C10.25732,5 10.35107,5.19142 10.24902,5.32278 L7.15771,9.29703 C7.07764,9.39998 6.92236,9.39998 6.84229,9.29703 L3.75098,5.32278 Z"></path></svg></span>Region</th><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesTitle"><path d="M7.73943662,8.6971831 C7.77640845,8.7834507 7.81338028,8.8943662 7.81338028,9.00528169 C7.81338028,9.49823944 7.40669014,9.89260563 6.91373239,9.89260563 C6.53169014,9.89260563 6.19894366,9.64612676 6.08802817,9.30105634 L5.75528169,8.33978873 L2.05809859,8.33978873 L1.72535211,9.30105634 C1.61443662,9.64612676 1.2693662,9.89260563 0.887323944,9.89260563 C0.394366197,9.89260563 0,9.49823944 0,9.00528169 C0,8.8943662 0.0246478873,8.7834507 0.0616197183,8.6971831 L2.46478873,2.48591549 C2.68661972,1.90669014 3.24119718,1.5 3.90669014,1.5 C4.55985915,1.5 5.12676056,1.90669014 5.34859155,2.48591549 L7.73943662,8.6971831 Z M2.60035211,6.82394366 L5.21302817,6.82394366 L3.90669014,3.10211268 L2.60035211,6.82394366 Z M11.3996479,3.70598592 C12.7552817,3.70598592 14,4.24823944 14,5.96126761 L14,9.07922535 C14,9.52288732 13.6549296,9.89260563 13.2112676,9.89260563 C12.8169014,9.89260563 12.471831,9.59683099 12.4225352,9.19014085 C12.028169,9.6584507 11.3257042,9.95422535 10.5492958,9.95422535 C9.60035211,9.95422535 8.47887324,9.31338028 8.47887324,7.98239437 C8.47887324,6.58978873 9.60035211,6.08450704 10.5492958,6.08450704 C11.3380282,6.08450704 12.040493,6.33098592 12.4348592,6.81161972 L12.4348592,5.98591549 C12.4348592,5.38204225 11.9172535,4.98767606 11.1285211,4.98767606 C10.6602113,4.98767606 10.2411972,5.11091549 9.80985915,5.38204225 C9.72359155,5.43133803 9.61267606,5.46830986 9.50176056,5.46830986 C9.18133803,5.46830986 8.91021127,5.1971831 8.91021127,4.86443662 C8.91021127,4.64260563 9.0334507,4.44542254 9.19366197,4.34683099 C9.87147887,3.90316901 10.6232394,3.70598592 11.3996479,3.70598592 Z M11.1778169,8.8943662 C11.6830986,8.8943662 12.1760563,8.72183099 12.4348592,8.37676056 L12.4348592,7.63732394 C12.1760563,7.29225352 11.6830986,7.11971831 11.1778169,7.11971831 C10.5616197,7.11971831 10.056338,7.45246479 10.056338,8.0193662 C10.056338,8.57394366 10.5616197,8.8943662 11.1778169,8.8943662 Z M0.65625,11.125 L13.34375,11.125 C13.7061869,11.125 14,11.4188131 14,11.78125 C14,12.1436869 13.7061869,12.4375 13.34375,12.4375 L0.65625,12.4375 C0.293813133,12.4375 4.43857149e-17,12.1436869 0,11.78125 C-4.43857149e-17,11.4188131 0.293813133,11.125 0.65625,11.125 Z"></path></svg></span>Rep</th><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesText"><path d="M7,4.56818 C7,4.29204 6.77614,4.06818 6.5,4.06818 L0.5,4.06818 C0.223858,4.06818 0,4.29204 0,4.56818 L0,5.61364 C0,5.88978 0.223858,6.11364 0.5,6.11364 L6.5,6.11364 C6.77614,6.11364 7,5.88978 7,5.61364 L7,4.56818 Z M0.5,1 C0.223858,1 0,1.223858 0,1.5 L0,2.54545 C0,2.8216 0.223858,3.04545 0.5,3.04545 L12.5,3.04545 C12.7761,3.04545 13,2.8216 13,2.54545 L13,1.5 C13,1.223858 12.7761,1 12.5,1 L0.5,1 Z M0,8.68182 C0,8.95796 0.223858,9.18182 0.5,9.18182 L11.5,9.18182 C11.7761,9.18182 12,8.95796 12,8.68182 L12,7.63636 C12,7.36022 11.7761,7.13636 11.5,7.13636 L0.5,7.13636 C0.223858,7.13636 0,7.36022 0,7.63636 L0,8.68182 Z M0,11.75 C0,12.0261 0.223858,12.25 0.5,12.25 L9.5,12.25 C9.77614,12.25 10,12.0261 10,11.75 L10,10.70455 C10,10.4284 9.77614,10.20455 9.5,10.20455 L0.5,10.20455 C0.223858,10.20455 0,10.4284 0,10.70455 L0,11.75 Z"></path></svg></span>Item</th><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesNumber"><path d="M4.46191,0 C3.8667,0 3.38428,0.482422 3.38428,1.07751 L3.38428,3.38425 L1.07764,3.38425 C0.482422,3.38425 0,3.86667 0,4.46179 C0,5.05688 0.482422,5.53931 1.07764,5.53931 L3.38428,5.53931 L3.38428,8.46063 L1.07764,8.46063 C0.482422,8.46063 0,8.94308 0,9.53818 C0,10.1333 0.482422,10.6157 1.07764,10.6157 L3.38428,10.6157 L3.38428,12.9224 C3.38428,13.5175 3.8667,13.9999 4.46191,13.9999 C5.05664,13.9999 5.53906,13.5175 5.53906,12.9224 L5.53906,10.6157 L8.46045,10.6157 L8.46045,12.9224 C8.46045,13.5175 8.94287,13.9999 9.53809,13.9999 C10.1333,13.9999 10.6157,13.5175 10.6157,12.9224 L10.6157,10.6157 L12.9224,10.6157 C13.5176,10.6157 14,10.1333 14,9.53818 C14,8.94308 13.5176,8.46063 12.9224,8.46063 L10.6157,8.46063 L10.6157,5.53931 L12.9224,5.53931 C13.5176,5.53931 14,5.05688 14,4.46179 C14,3.86667 13.5176,3.38425 12.9224,3.38425 L10.6157,3.38425 L10.6157,1.07751 C10.6157,0.482422 10.1333,0 9.53809,0 C8.94287,0 8.46045,0.482422 8.46045,1.07751 L8.46045,3.38425 L5.53906,3.38425 L5.53906,1.07751 C5.53906,0.482422 5.05664,0 4.46191,0 Z M5.53906,8.46063 L5.53906,5.53931 L8.46045,5.53931 L8.46045,8.46063 L5.53906,8.46063 Z"></path></svg></span>Units</th><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesNumber"><path d="M4.46191,0 C3.8667,0 3.38428,0.482422 3.38428,1.07751 L3.38428,3.38425 L1.07764,3.38425 C0.482422,3.38425 0,3.86667 0,4.46179 C0,5.05688 0.482422,5.53931 1.07764,5.53931 L3.38428,5.53931 L3.38428,8.46063 L1.07764,8.46063 C0.482422,8.46063 0,8.94308 0,9.53818 C0,10.1333 0.482422,10.6157 1.07764,10.6157 L3.38428,10.6157 L3.38428,12.9224 C3.38428,13.5175 3.8667,13.9999 4.46191,13.9999 C5.05664,13.9999 5.53906,13.5175 5.53906,12.9224 L5.53906,10.6157 L8.46045,10.6157 L8.46045,12.9224 C8.46045,13.5175 8.94287,13.9999 9.53809,13.9999 C10.1333,13.9999 10.6157,13.5175 10.6157,12.9224 L10.6157,10.6157 L12.9224,10.6157 C13.5176,10.6157 14,10.1333 14,9.53818 C14,8.94308 13.5176,8.46063 12.9224,8.46063 L10.6157,8.46063 L10.6157,5.53931 L12.9224,5.53931 C13.5176,5.53931 14,5.05688 14,4.46179 C14,3.86667 13.5176,3.38425 12.9224,3.38425 L10.6157,3.38425 L10.6157,1.07751 C10.6157,0.482422 10.1333,0 9.53809,0 C8.94287,0 8.46045,0.482422 8.46045,1.07751 L8.46045,3.38425 L5.53906,3.38425 L5.53906,1.07751 C5.53906,0.482422 5.05664,0 4.46191,0 Z M5.53906,8.46063 L5.53906,5.53931 L8.46045,5.53931 L8.46045,8.46063 L5.53906,8.46063 Z"></path></svg></span>Unit Cost</th><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesText"><path d="M7,4.56818 C7,4.29204 6.77614,4.06818 6.5,4.06818 L0.5,4.06818 C0.223858,4.06818 0,4.29204 0,4.56818 L0,5.61364 C0,5.88978 0.223858,6.11364 0.5,6.11364 L6.5,6.11364 C6.77614,6.11364 7,5.88978 7,5.61364 L7,4.56818 Z M0.5,1 C0.223858,1 0,1.223858 0,1.5 L0,2.54545 C0,2.8216 0.223858,3.04545 0.5,3.04545 L12.5,3.04545 C12.7761,3.04545 13,2.8216 13,2.54545 L13,1.5 C13,1.223858 12.7761,1 12.5,1 L0.5,1 Z M0,8.68182 C0,8.95796 0.223858,9.18182 0.5,9.18182 L11.5,9.18182 C11.7761,9.18182 12,8.95796 12,8.68182 L12,7.63636 C12,7.36022 11.7761,7.13636 11.5,7.13636 L0.5,7.13636 C0.223858,7.13636 0,7.36022 0,7.63636 L0,8.68182 Z M0,11.75 C0,12.0261 0.223858,12.25 0.5,12.25 L9.5,12.25 C9.77614,12.25 10,12.0261 10,11.75 L10,10.70455 C10,10.4284 9.77614,10.20455 9.5,10.20455 L0.5,10.20455 C0.223858,10.20455 0,10.4284 0,10.70455 L0,11.75 Z"></path></svg></span>Total</th></tr></thead><tbody><tr id="8e00a0f8-8e0f-42f8-98a6-1bc36703cc03"><td class="cell-mxAI"><span class="selected-value select-value-color-pink">East</span></td><td class="cell-title"><a href="md%20and%20html%20webdevhub%20ef718094bc22432e8aea9c969830ea79/Untitled%20Database%20d555bd4a709244da99ac5893e262be47/Jones%208e00a0f88e0f42f898a61bc36703cc03.html">Jones</a></td><td class="cell-@PIw">Pencil</td><td class="cell-d]Uf">95</td><td class="cell-Nar=">1.99</td><td class="cell-e{UJ">189.05</td></tr><tr id="5ef80861-d689-4458-9183-687884773f9c"><td class="cell-mxAI"><span class="selected-value select-value-color-pink">Central</span></td><td class="cell-title"><a href="md%20and%20html%20webdevhub%20ef718094bc22432e8aea9c969830ea79/Untitled%20Database%20d555bd4a709244da99ac5893e262be47/Kivell%205ef80861d68944589183687884773f9c.html">Kivell</a></td><td class="cell-@PIw">Binder</td><td class="cell-d]Uf">50</td><td class="cell-Nar=">19.99</td><td class="cell-e{UJ">999.50</td></tr><tr id="42a12517-c2ea-4442-a190-41b721993eda"><td class="cell-mxAI"><span class="selected-value select-value-color-pink">Central</span></td><td class="cell-title"><a href="md%20and%20html%20webdevhub%20ef718094bc22432e8aea9c969830ea79/Untitled%20Database%20d555bd4a709244da99ac5893e262be47/Jardine%2042a12517c2ea4442a19041b721993eda.html">Jardine</a></td><td class="cell-@PIw">Pencil</td><td class="cell-d]Uf">36</td><td class="cell-Nar=">4.99</td><td class="cell-e{UJ">179.64</td></tr><tr id="387ee956-b276-4404-b0eb-610a1f88c589"><td class="cell-mxAI"><span class="selected-value select-value-color-pink">Central</span></td><td class="cell-title"><a href="md%20and%20html%20webdevhub%20ef718094bc22432e8aea9c969830ea79/Untitled%20Database%20d555bd4a709244da99ac5893e262be47/Gill%20387ee956b2764404b0eb610a1f88c589.html">Gill</a></td><td class="cell-@PIw">Pen</td><td class="cell-d]Uf">27</td><td class="cell-Nar=">19.99</td><td class="cell-e{UJ">539.73</td></tr><tr id="5f9733b8-12e9-4b6e-b00f-39b3ee9bf450"><td class="cell-mxAI"><span class="selected-value select-value-color-pink">East</span></td><td class="cell-title"><a href="md%20and%20html%20webdevhub%20ef718094bc22432e8aea9c969830ea79/Untitled%20Database%20d555bd4a709244da99ac5893e262be47/Jones%205f9733b812e94b6eb00f39b3ee9bf450.html">Jones</a></td><td class="cell-@PIw">Binder</td><td class="cell-d]Uf">60</td><td class="cell-Nar=">4.99</td><td class="cell-e{UJ">299.40</td></tr><tr id="65580343-275d-40c6-9a8b-26cdef09673c"><td class="cell-mxAI"><span class="selected-value select-value-color-pink">Central</span></td><td class="cell-title"><a href="md%20and%20html%20webdevhub%20ef718094bc22432e8aea9c969830ea79/Untitled%20Database%20d555bd4a709244da99ac5893e262be47/Andrews%2065580343275d40c69a8b26cdef09673c.html">Andrews</a></td><td class="cell-@PIw">Pencil</td><td class="cell-d]Uf">75</td><td class="cell-Nar=">1.99</td><td class="cell-e{UJ">149.25</td></tr><tr id="0bf22edb-793b-4b6a-a09b-ef00385d9f07"><td class="cell-mxAI"><span class="selected-value select-value-color-pink">East</span></td><td class="cell-title"><a href="md%20and%20html%20webdevhub%20ef718094bc22432e8aea9c969830ea79/Untitled%20Database%20d555bd4a709244da99ac5893e262be47/Jones%200bf22edb793b4b6aa09bef00385d9f07.html">Jones</a></td><td class="cell-@PIw">Binder</td><td class="cell-d]Uf">60</td><td class="cell-Nar=">8.99</td><td class="cell-e{UJ">539.40</td></tr><tr id="13078516-dd6c-4d17-a697-5a97f0fe7f78"><td class="cell-mxAI"><span class="selected-value select-value-color-pink">East</span></td><td class="cell-title"><a href="md%20and%20html%20webdevhub%20ef718094bc22432e8aea9c969830ea79/Untitled%20Database%20d555bd4a709244da99ac5893e262be47/Howard%2013078516dd6c4d17a6975a97f0fe7f78.html">Howard</a></td><td class="cell-@PIw">Binder</td><td class="cell-d]Uf">29</td><td class="cell-Nar=">1.99</td><td class="cell-e{UJ">57.71</td></tr><tr id="83c24810-d34a-4fe0-bf6b-520301d02367"><td class="cell-mxAI"><span class="selected-value select-value-color-pink">East</span></td><td class="cell-title"><a href="md%20and%20html%20webdevhub%20ef718094bc22432e8aea9c969830ea79/Untitled%20Database%20d555bd4a709244da99ac5893e262be47/Parent%2083c24810d34a4fe0bf6b520301d02367.html">Parent</a></td><td class="cell-@PIw">Binder</td><td class="cell-d]Uf">81</td><td class="cell-Nar=">19.99</td><td class="cell-e{UJ">1,619.19</td></tr><tr id="468b968a-361d-4937-9078-f717cacac824"><td class="cell-mxAI"><span class="selected-value select-value-color-pink">East</span></td><td class="cell-title"><a href="md%20and%20html%20webdevhub%20ef718094bc22432e8aea9c969830ea79/Untitled%20Database%20d555bd4a709244da99ac5893e262be47/Jones%20468b968a361d49379078f717cacac824.html">Jones</a></td><td class="cell-@PIw">Pencil</td><td class="cell-d]Uf">35</td><td class="cell-Nar=">4.99</td><td class="cell-e{UJ">174.65</td></tr><tr id="49f2fe87-32dd-4e4e-ab84-5fc20ef8bd4d"><td class="cell-mxAI"><span class="selected-value select-value-color-pink">Central</span></td><td class="cell-title"><a href="md%20and%20html%20webdevhub%20ef718094bc22432e8aea9c969830ea79/Untitled%20Database%20d555bd4a709244da99ac5893e262be47/Smith%2049f2fe8732dd4e4eab845fc20ef8bd4d.html">Smith</a></td><td class="cell-@PIw">Desk</td><td class="cell-d]Uf">2</td><td class="cell-Nar=">125</td><td class="cell-e{UJ">250.00</td></tr><tr id="082adcc1-a411-4e35-a9af-1a4b76574765"><td class="cell-mxAI"><span class="selected-value select-value-color-pink">East</span></td><td class="cell-title"><a href="md%20and%20html%20webdevhub%20ef718094bc22432e8aea9c969830ea79/Untitled%20Database%20d555bd4a709244da99ac5893e262be47/Parent%20082adcc1a4114e35a9af1a4b76574765.html">Parent</a></td><td class="cell-@PIw">Pen</td><td class="cell-d]Uf">15</td><td class="cell-Nar=">19.99</td><td class="cell-e{UJ">299.85</td></tr><tr id="2bd33c96-fdab-4ce5-b81c-719621850733"><td class="cell-mxAI"><span class="selected-value select-value-color-pink">Central</span></td><td class="cell-title"><a href="md%20and%20html%20webdevhub%20ef718094bc22432e8aea9c969830ea79/Untitled%20Database%20d555bd4a709244da99ac5893e262be47/Kivell%202bd33c96fdab4ce5b81c719621850733.html">Kivell</a></td><td class="cell-@PIw">Pen Set</td><td class="cell-d]Uf">96</td><td class="cell-Nar=">4.99</td><td class="cell-e{UJ">479.04</td></tr><tr id="dd8b3a2e-0004-4513-8739-e3fcc33134d9"><td class="cell-mxAI"><span class="selected-value select-value-color-pink">East</span></td><td class="cell-title"><a href="md%20and%20html%20webdevhub%20ef718094bc22432e8aea9c969830ea79/Untitled%20Database%20d555bd4a709244da99ac5893e262be47/Parent%20dd8b3a2e000445138739e3fcc33134d9.html">Parent</a></td><td class="cell-@PIw">Pen Set</td><td class="cell-d]Uf">74</td><td class="cell-Nar=">15.99</td><td class="cell-e{UJ">1,183.26</td></tr><tr id="f304dea7-b212-4cc7-ad12-dc2bc34fdfa7"><td class="cell-mxAI"><span class="selected-value select-value-color-pink">Central</span></td><td class="cell-title"><a href="md%20and%20html%20webdevhub%20ef718094bc22432e8aea9c969830ea79/Untitled%20Database%20d555bd4a709244da99ac5893e262be47/Smith%20f304dea7b2124cc7ad12dc2bc34fdfa7.html">Smith</a></td><td class="cell-@PIw">Binder</td><td class="cell-d]Uf">87</td><td class="cell-Nar=">15</td><td class="cell-e{UJ">1,305.00</td></tr><tr id="25855f9a-811e-4f0e-9978-270bb2f491aa"><td class="cell-mxAI"><span class="selected-value select-value-color-pink">Central</span></td><td class="cell-title"><a href="md%20and%20html%20webdevhub%20ef718094bc22432e8aea9c969830ea79/Untitled%20Database%20d555bd4a709244da99ac5893e262be47/Gill%2025855f9a811e4f0e9978270bb2f491aa.html">Gill</a></td><td class="cell-@PIw">Pencil</td><td class="cell-d]Uf">53</td><td class="cell-Nar=">1.29</td><td class="cell-e{UJ">68.37</td></tr><tr id="358b92ea-8f87-49a2-96fa-5cc33a18bb90"><td class="cell-mxAI"><span class="selected-value select-value-color-pink">Central</span></td><td class="cell-title"><a href="md%20and%20html%20webdevhub%20ef718094bc22432e8aea9c969830ea79/Untitled%20Database%20d555bd4a709244da99ac5893e262be47/Kivell%20358b92ea8f8749a296fa5cc33a18bb90.html">Kivell</a></td><td class="cell-@PIw">Pen Set</td><td class="cell-d]Uf">42</td><td class="cell-Nar=">23.95</td><td class="cell-e{UJ">1,005.90</td></tr><tr id="ea2cfe28-b25e-4945-9d6c-4842cf567f39"><td class="cell-mxAI"><span class="selected-value select-value-color-brown">West</span></td><td class="cell-title"><a href="md%20and%20html%20webdevhub%20ef718094bc22432e8aea9c969830ea79/Untitled%20Database%20d555bd4a709244da99ac5893e262be47/Sorvino%20ea2cfe28b25e49459d6c4842cf567f39.html">Sorvino</a></td><td class="cell-@PIw">Desk</td><td class="cell-d]Uf">3</td><td class="cell-Nar=">275</td><td class="cell-e{UJ">825.00</td></tr><tr id="23849339-b362-4097-9897-5b97e01c26c8"><td class="cell-mxAI"><span class="selected-value select-value-color-brown">West</span></td><td class="cell-title"><a href="md%20and%20html%20webdevhub%20ef718094bc22432e8aea9c969830ea79/Untitled%20Database%20d555bd4a709244da99ac5893e262be47/Thompson%2023849339b362409798975b97e01c26c8.html">Thompson</a></td><td class="cell-@PIw">Binder</td><td class="cell-d]Uf">57</td><td class="cell-Nar=">19.99</td><td class="cell-e{UJ">1,139.43</td></tr><tr id="6568aa96-f4b6-4a1c-aa80-ea40119665c1"><td class="cell-mxAI"><span class="selected-value select-value-color-pink">Central</span></td><td class="cell-title"><a href="md%20and%20html%20webdevhub%20ef718094bc22432e8aea9c969830ea79/Untitled%20Database%20d555bd4a709244da99ac5893e262be47/Jardine%206568aa96f4b64a1caa80ea40119665c1.html">Jardine</a></td><td class="cell-@PIw">Binder</td><td class="cell-d]Uf">94</td><td class="cell-Nar=">19.99</td><td class="cell-e{UJ">1,879.06</td></tr></tbody></table></div><pre id="bc1e1c9f-bb4f-4bb5-a900-b1b92d589493" class="code code-wrap"><code>\___________________________________________________
+bryan_dir:excel-2-html-table_exitstatus:0 ====&gt;
+tree -d -L 2
+.
+├── assets
+├── doccumentation
+└── src
+    └── node_modules
+4 directories
+\___________________________________________________
+bryan_dir:excel-2-html-table_exitstatus:0 ====&gt;
+tree -L 2
+.
+├── README.md
+├── SampleData.html
+├── SampleData.xlsx
+├── assets
+│   ├── 2021-01-27-14-27-34.png
+│   └── 2021-01-27-14-31-00.png
+├── doccumentation
+│   ├── cheerio.md
+│   ├── notes.md
+│   └── xlsx.md
+├── src
+│   ├── index.js
+│   ├── node_modules
+│   ├── package-lock.json
+│   └── package.json
+└── ~$SampleData.xlsx
+4 directories, 12 files
+
+
+
+
+
+
+
+
+
+
+
+</code></pre><pre id="ecfa1bc1-a070-4aee-a015-db3195119fa8" class="code code-wrap"><code>&quot;use strict&quot;;
+let fs = require(&#x27;fs&#x27;);
+let process = require(&#x27;process&#x27;);
+let workingDirectory = process.cwd().slice(2);
+let XLSX = require(&#x27;xlsx&#x27;);
+let workbook = XLSX.readFile(process.argv[2]);
+let sheets = workbook.Sheets;
+let htmlFile = &#x27;&#x27;;
+let rowNumber;
+let htmlArray;
+// Check to make sure user provides argument for command line
+if (typeof process.argv[2] === &#x27;undefined&#x27;) {
+ console.log(&#x27;\n&#x27; + &#x27;Error:&#x27; + &#x27;\n&#x27; + &#x27;You must enter the excel file you wish to build tables from as an argument&#x27; + &#x27;\n&#x27; + &#x27;i.e., node toTable.js resolutions.xlsx&#x27;);
+ return;
+} else {
+ // Check that the file is the correct type
+ if (process.argv[2].slice(-4) !== &#x27;xlsx&#x27;) {
+ console.log(&#x27;\n&#x27; + &#x27;This program will only convert xlsx files&#x27; + &#x27;\n&#x27; + &#x27;Please enter correct file type&#x27;);
+ return;
+ } else {
+ // Create the HTML file name to write the table to
+ var fileName = process.argv[2];
+ var newFileName = fileName.slice(0, -4) + &#x27;html&#x27;;
+ }
+}
+//htmlFile += &#x27;&lt;html&gt;&#x27; + &#x27;\n&#x27; + &#x27;&lt;body&gt;&#x27; +&#x27;\n&#x27;;
+function getPosition(string, subString, index) {
+ return string.split(subString, index).join(subString).length;
+}
+// Iterate through each worksheet in the workbook
+for (var sheet in sheets) {
+ // Start building a new table if the worksheet has entries
+ if (typeof sheet !== &#x27;undefined&#x27;) {
+ htmlFile += &#x27;&lt;table summary=&quot;&quot; class=&quot;turntable&quot;&gt;&#x27; + &#x27;\n&#x27; + &#x27;&lt;thead&gt;&#x27;;
+ // Iterate over each cell value on the sheet
+ for (var cell in sheets[sheet]) {
+ // Protect against undefined values
+ if (typeof sheets[sheet][cell].w !== &#x27;undefined&#x27;) {
+ //The first row in the table
+ if (cell === &#x27;A1&#x27;) {
+ htmlFile += &#x27;\n&#x27; + &#x27;&lt;tr&gt;&#x27; + &#x27;\n&#x27; + &#x27;&lt;th&gt;&#x27; + sheets[sheet][cell].w.replace(&#x27;&amp; &#x27;, &#x27;&amp;amp;&#x27;).replace(&#x27;-&#x27;, &#x27;&amp;ndash;&#x27;).replace(&#x27;–&#x27;, &#x27;&amp;mdash;&#x27;) + &#x27;&lt;/th&gt;&#x27;;
+ } else {
+ //The second row in the table closes the thead element
+ if (cell === &#x27;A2&#x27;) {
+ htmlFile += &#x27;\n&#x27; + &#x27;&lt;/tr&gt;&#x27; + &#x27;\n&#x27; + &#x27;&lt;/thead&gt;&#x27; + &#x27;\n&#x27; + &#x27;&lt;tr&gt;&#x27; + &#x27;\n&#x27; + &#x27;&lt;th&gt;&#x27; + sheets[sheet][cell].w.replace(&#x27;&amp; &#x27;, &#x27;&amp;amp;&#x27;).replace(&#x27;-&#x27;, &#x27;&amp;ndash;&#x27;).replace(&#x27;–&#x27;, &#x27;&amp;mdash;&#x27;) + &#x27;&lt;/th&gt;&#x27;;
+ } else {
+ // The first cell in each row
+ if (cell.slice(0, 1) === &#x27;A&#x27;) {
+ htmlFile += &#x27;\n&#x27; + &#x27;&lt;/tr&gt;&#x27; + &#x27;\n&#x27; + &#x27;&lt;tr&gt;&#x27; + &#x27;\n&#x27; + &#x27;&lt;th&gt;&#x27; + sheets[sheet][cell].w.replace(&#x27;&amp; &#x27;, &#x27;&amp;amp;&#x27;).replace(&#x27;-&#x27;, &#x27;&amp;ndash;&#x27;).replace(&#x27;–&#x27;, &#x27;&amp;mdash;&#x27;) + &#x27;&lt;/th&gt;&#x27;;
+ //All the other cells
+ } else {
+ htmlFile += &#x27;\n&#x27; + &#x27;&lt;td&gt;&#x27; + sheets[sheet][cell].w.replace(&#x27;&amp; &#x27;, &#x27;&amp;amp;&#x27;).replace(&#x27;-&#x27;, &#x27;&amp;ndash;&#x27;).replace(&#x27;–&#x27;, &#x27;&amp;mdash&#x27;) + &#x27;&lt;/td&gt;&#x27;;
+ }
+ }
+ }
+ }
+ }
+ // Close the table
+ htmlFile += &#x27;\n&#x27; + &#x27;&lt;/tr&gt;&#x27; + &#x27;\n&#x27; + &#x27;&lt;/table&gt;&#x27; + &#x27;\n&#x27;;
+ }
+ /*console.log(sheets[sheet][&#x27;!merges&#x27;]);
+ sheets[sheet][&#x27;!merges&#x27;].forEach(function(merge, index) {
+ //console.log(merge);
+ rowNumber = (getPosition(htmlFile, &#x27;&lt;th&gt;&#x27;, (merge.s.r+1)) + 3);
+ console.log(rowNumber);
+ htmlArray = htmlFile.split(&#x27;&#x27;);
+ htmlArray.splice(rowNumber, 0, &#x27; colspan=&quot;3&quot;&#x27;);
+ htmlFile = htmlArray.join(&#x27;&#x27;);
+ });*/
+}
+// Close the file
+//htmlFile += &#x27;&lt;/body&gt;&#x27; + &#x27;\n&#x27; + &#x27;&lt;/html&gt;&#x27;;
+// Write htmlFile variable to the disk with newFileName as the name
+fs.writeFile(newFileName, htmlFile, (err) =&gt; {
+ if (err) throw err;
+ console.log(&#x27;\n&#x27; +&#x27;Your tables have been created in&#x27;, newFileName);
+});</code></pre><ul id="e5940da5-46ae-44dd-8c38-37a0b82e118a" class="bulleted-list"><li style="list-style-type:disc"><a href="https://bgoonz-blog.netlify.app/docs/tools/markdown-html/Demo.html">./DEMO</a></li></ul><ul id="862c88cc-cf14-4e92-8814-6519c2688313" class="bulleted-list"><li style="list-style-type:disc"><a href="https://bgoonz-blog.netlify.app/docs/tools/markdown-html/doccumentation/cheerio.html">./doccumentation/cheerio.html</a></li></ul><ul id="431a59ed-9dd0-4658-8d54-a158d69c1c14" class="bulleted-list"><li style="list-style-type:disc"><a href="https://bgoonz-blog.netlify.app/docs/tools/markdown-html/doccumentation/notes.html">./doccumentation/notes.html</a></li></ul><ul id="f1ad0c8e-8741-49e7-bb10-492de090d04f" class="bulleted-list"><li style="list-style-type:disc"><a href="https://bgoonz-blog.netlify.app/docs/tools/markdown-html/doccumentation/process-argv.html">./doccumentation/process-argv.html</a></li></ul><ul id="16896ee6-898a-4a09-bc5e-c7bd8f3ec7db" class="bulleted-list"><li style="list-style-type:disc"><a href="https://bgoonz-blog.netlify.app/docs/tools/markdown-html/doccumentation/xlsx.html">./doccumentation/xlsx.html</a></li></ul><ul id="1be40288-015d-4630-820a-53f2d91e720f" class="bulleted-list"><li style="list-style-type:disc"><a href="https://bgoonz-blog.netlify.app/docs/tools/markdown-html/index.html">./index.html</a></li></ul><ul id="812e317c-44a8-4cf2-94f9-2873d321f854" class="bulleted-list"><li style="list-style-type:disc"><a href="https://bgoonz-blog.netlify.app/docs/tools/markdown-html/testing/SampleData.html">./testing/SampleData.html</a></li></ul></div></article></body></html>
