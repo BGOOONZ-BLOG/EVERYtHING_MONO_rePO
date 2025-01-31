@@ -8,7 +8,6 @@ Stackbit launched a new major version that brings a superior developer experienc
 Click the button below to create a new website using the new version of Stackbit.
 
 [![Create with Stackbit](https://assets.stackbit.com/badge/create-with-stackbit.svg)](https://app.stackbit.com/create?utm_source=theme-readme&utm_medium=referral&utm_campaign=stackbit_themes)
-
 ## Contributing
 
 This repository is auto-generated and can not receive pull-requests. If you have any suggestions or feedback you are welcome to submit an issue.
